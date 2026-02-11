@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "noitemloss",
+  "version": "${version}",
+  "name": "NoItemLoss",
+  "description": "",
+  "authors": [
+    ""
+  ],
+  "contact": {
+    "homepage": ""
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/noitemloss/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.necr0manthre.noitemloss.fabric.NoItemLossFabric"
+    ],
+    "client": [
+      "dev.necr0manthre.noitemloss.fabric.client.NoItemLossFabricClient"
+    ]
+  },
+  "mixins": [
+    "noitemloss.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.18.4",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "architectury": ">=19.0.1"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

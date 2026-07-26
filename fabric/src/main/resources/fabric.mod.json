@@ -15,10 +15,16 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "dev.necr0manthre.noitemloss.fabric.NoItemLossFabric"
+      {
+        "adapter": "kotlin",
+        "value": "dev.necr0manthre.noitemloss.fabric.NoItemLossFabric"
+      }
     ],
     "client": [
-      "dev.necr0manthre.noitemloss.fabric.client.NoItemLossFabricClient"
+      {
+        "adapter": "kotlin",
+        "value": "dev.necr0manthre.noitemloss.fabric.client.NoItemLossFabricClient"
+      }
     ]
   },
   "mixins": [
@@ -28,7 +34,8 @@
     "fabricloader": ">=0.18.4",
     "minecraft": "~1.21.11",
     "java": ">=21",
-    "architectury": ">=19.0.1"
+    "architectury": ">=19.0.1",
+    "fabric-language-kotlin": ">=1.13.9+kotlin.2.3.10"
   },
   "suggests": {
     "another-mod": "*"

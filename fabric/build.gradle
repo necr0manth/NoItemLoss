@@ -1,5 +1,5 @@
 plugins {
-    id 'com.github.johnrengelman.shadow'
+    id 'com.gradleup.shadow'
 }
 
 architectury {
@@ -25,13 +25,13 @@ configurations {
 }
 
 dependencies {
-    modImplementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
+    implementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
 
 
-    modImplementation "dev.architectury:architectury-fabric:$rootProject.architectury_api_version"
-    modImplementation("net.fabricmc:fabric-language-kotlin:1.13.9+kotlin.2.3.10")
+    implementation "dev.architectury:architectury-fabric:$rootProject.architectury_api_version"
+    implementation("net.fabricmc:fabric-language-kotlin:1.13.9+kotlin.2.3.10")
 
-    common(project(path: ':common', configuration: 'namedElements')) { transitive false }
+    common(project(path: ':common')) { transitive false }
     shadowBundle project(path: ':common', configuration: 'transformProductionFabric')
 }
 
@@ -43,11 +43,26 @@ processResources {
     }
 }
 
-shadowJar {
-    configurations = [project.configurations.shadowBundle]
-    archiveClassifier = 'dev-shadow'
+jar {
+    archiveClassifier = 'raw'
 }
 
-remapJar {
-    input.set shadowJar.archiveFile
+shadowJar {
+    dependsOn jar
+    mainSpec.sourcePaths.clear()
+    from(zipTree(jar.archiveFile))
+    configurations = [project.configurations.shadowBundle]
+    archiveClassifier = null
+}
+
+assemble.dependsOn shadowJar
+
+configurations.apiElements {
+    outgoing.artifacts.clear()
+    outgoing.artifact shadowJar
+}
+
+configurations.runtimeElements {
+    outgoing.artifacts.clear()
+    outgoing.artifact shadowJar
 }

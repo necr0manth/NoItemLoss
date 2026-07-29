@@ -1,5 +1,5 @@
 modLoader = "kotlinforforge"
-loaderVersion = "[5.10,)"
+loaderVersion = "[6.2,)"
 #issueTrackerURL = ""
 license = "All Rights Reserved"
 
@@ -16,21 +16,21 @@ description = '''
 [[dependencies.noitemloss]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21,)"
+versionRange = "[26.2.0.35-beta,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.noitemloss]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21.11,)"
+versionRange = "[26.2,26.3)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.noitemloss]]
 modId = "architectury"
 type = "required"
-versionRange = "[19.0.1,)"
+versionRange = "[21.0.6,)"
 ordering = "AFTER"
 side = "BOTH"
 
